@@ -3,7 +3,7 @@ package com.company.droids;
 public class DroidUltra extends Droid {
 
     public DroidUltra() {
-        super.setTypeOfDroid("Ultra");
+        super.setDroidtype("Ultra");
     }
 
 
@@ -13,8 +13,8 @@ public class DroidUltra extends Droid {
 
 
     @Override
-    public void useUltraPower(Droid defend) {
-        super.useUltraPower(defend);
-        this.setProtection(this.getProtection()+70);
+    public void useExtraPower(Droid defend) {
+        super.useExtraPower(defend);
+        this.setAdditionalProtect(this.getAdditionalProtect()+70);
     }
 }

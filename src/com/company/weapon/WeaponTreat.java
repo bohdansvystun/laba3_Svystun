@@ -4,7 +4,7 @@ import com.company.droids.Droid;
 
 public class WeaponTreat extends Weapon {
     public WeaponTreat() {
-        super.setTypeOfWeapon("Treat");
+        super.setWeaponType("Treat");
     }
 
 

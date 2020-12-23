@@ -13,9 +13,9 @@ public class Droid {
     private String name;
     private int health;
     private int damage;
-    private int protection;
+    private int additionalprotect;
     private Weapon weapon;
-    private String typeOfDroid;
+    private String droidtype;
 
 
     public Droid() {
@@ -25,8 +25,8 @@ public class Droid {
         this.weapon = chooseWeapon();
         this.health = 150;
         this.damage = 25;
-        this.protection = 40;
-        this.typeOfDroid = "Typical";
+        this.additionalprotect = 40;
+        this.droidtype = "Typical";
     }
 
     @Override
@@ -35,7 +35,7 @@ public class Droid {
                 "name='" + name + '\'' +
                 ", health=" + health +
                 ", damage=" + damage +
-                ", protection=" + protection +
+                ", protection=" + additionalprotect +
                 '}';
     }
 
@@ -73,35 +73,38 @@ public class Droid {
     }
 
 
-    public int getProtection() {
-        return protection;
+    public int getAdditionalProtect() {
+        return additionalprotect;
     }
 
-    public void setProtection(int protection) {
-        this.protection = protection;
-    }
-
-
-    public String getTypeOfDroid() {
-        return typeOfDroid;
-    }
-
-    public void setTypeOfDroid(String typeOfDroid) {
-        this.typeOfDroid = typeOfDroid;
+    public void setAdditionalProtect(int protection) {
+        this.additionalprotect = protection;
     }
 
 
-    public boolean droidIsAlive(){
+    public String getDroidtype() {
+        return droidtype;
+    }
+
+    public void setDroidtype(String droidtype) {
+        this.droidtype = droidtype;
+    }
+
+
+    public boolean droidAlive(){
         return this.getHealth() > 0;
     }
 
     public Weapon chooseWeapon(){
         Scanner in = new Scanner(System.in);
-        System.out.print("Виберіть зброю:\n" +
-                "1 - Bayonet\n" +
-                "2 - Treat\n" +
-                "3 - Defend\n"+
-                "4 - Pistol\n");
+        System.out.print("Choose weapon type:\n" +
+                "-------------\n"+
+                "|1 - Bayonet|\n" +
+                "|2 - Treat  |\n" +
+                "|3 - Defend |\n"+
+                "|4 - Pistol |\n"+
+                "------------- \n")
+        ;
         int type = in.nextInt();
 
         if (type == 1){
@@ -123,19 +126,19 @@ public class Droid {
 
     }
 
-    public void useUltraPower(Droid defend){
+    public void useExtraPower(Droid defend){
         System.out.printf("Droid %s use ultra power against droid %s\n", this.name, defend.getName());
     }
 
-    public void powerIsUsed(Droid defend){
+    public void powerUsed(Droid defend){
         int numb;
         numb = (int) (Math.random() * 4);
         if(numb == 1){
-            this.useUltraPower(defend);
+            this.useExtraPower(defend);
         }
     }
 
-    public void weaponIsUsed(Droid attack, Droid defend){
+    public void weaponUsed(Droid attack, Droid defend){
         int numb;
         numb = (int) (Math.random() * 3);
         if(numb == 1){
@@ -143,12 +146,12 @@ public class Droid {
         }
     }
 
-    public void makeHit(Droid defend){
-        if (defend.getProtection() != 0){
-            defend.setProtection(defend.getProtection() - this.getDamage());
-            if (defend.getProtection() < 0){
-                defend.setHealth(defend.getHealth() + defend.getProtection());
-                defend.setProtection(0);
+    public void makeDamage(Droid defend){
+        if (defend.getAdditionalProtect() != 0){
+            defend.setAdditionalProtect(defend.getAdditionalProtect() - this.getDamage());
+            if (defend.getAdditionalProtect() < 0){
+                defend.setHealth(defend.getHealth() + defend.getAdditionalProtect());
+                defend.setAdditionalProtect(0);
             }
         }
         else {
@@ -158,7 +161,7 @@ public class Droid {
 
     public void printDroid(){
         System.out.printf("|\t%-8s|\t%-8s|\t%-8s|\t%d\t\t|\t%d\t\t|\t%d\t\t\t|\n", this.getName(),
-                this.getTypeOfDroid(), this.getWeapon().getTypeOfWeapon(), this.getHealth(),
-                this.getDamage(), this.getProtection());
+                this.getDroidtype(), this.getWeapon().getWeaponType(), this.getHealth(),
+                this.getDamage(), this.getAdditionalProtect());
     }
 }

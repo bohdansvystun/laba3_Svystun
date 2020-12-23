@@ -16,7 +16,7 @@ public class Battle {
 
     public boolean firstTeamIsAlive(){
         for(int i = 0; i < this.first.size(); i++){
-            if (!(this.first.get(i).droidIsAlive())){
+            if (!(this.first.get(i).droidAlive())){
                 this.first.remove(i);
             }
         }
@@ -30,7 +30,7 @@ public class Battle {
 
     public boolean secondTeamIsAlive(){
         for(int i = 0; i < this.second.size(); i++){
-            if (!(this.second.get(i).droidIsAlive())){
+            if (!(this.second.get(i).droidAlive())){
                 this.second.remove(i);
             }
         }
@@ -66,27 +66,27 @@ public class Battle {
 
     public void startFight(){
         int i;
-        Droid makeHitDroid;
+        Droid hitDroid;
         Droid defendDroid;
         i = (int) (Math.random() + 0.5);
         if (i == 0){
 
-            makeHitDroid = this.choseFirstTeamDroid();
+            hitDroid = this.choseFirstTeamDroid();
             defendDroid = this.choseSecondTeamDroid();
-            makeHitDroid.makeHit(defendDroid);
-            System.out.println("Droid " + makeHitDroid.getName() +
+            hitDroid.makeDamage(defendDroid);
+            System.out.println("Droid " + hitDroid.getName() +
                     " hits droid " + defendDroid.getName());
-            makeHitDroid.powerIsUsed(defendDroid);
-            makeHitDroid.weaponIsUsed(makeHitDroid, defendDroid);
+            hitDroid.powerUsed(defendDroid);
+            hitDroid.weaponUsed(hitDroid, defendDroid);
         }
         else if (i == 1){
-            makeHitDroid = this.choseSecondTeamDroid();
+            hitDroid = this.choseSecondTeamDroid();
             defendDroid = this.choseFirstTeamDroid();
-            makeHitDroid.makeHit(defendDroid);
-            System.out.println("Droid " + makeHitDroid.getName() +
+            hitDroid.makeDamage(defendDroid);
+            System.out.println("Droid " + hitDroid.getName() +
                     " hits droid " + defendDroid.getName());
-            makeHitDroid.powerIsUsed(defendDroid);
-            makeHitDroid.weaponIsUsed(makeHitDroid, defendDroid);
+            hitDroid.powerUsed(defendDroid);
+            hitDroid.weaponUsed(hitDroid, defendDroid);
         }
     }
 

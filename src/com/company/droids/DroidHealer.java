@@ -3,7 +3,7 @@ package com.company.droids;
 public class DroidHealer extends Droid {
 
     public DroidHealer() {
-        super.setTypeOfDroid("Healer");
+        super.setDroidtype("Healer");
     }
 
 
@@ -15,8 +15,8 @@ public class DroidHealer extends Droid {
 
 
     @Override
-    public void useUltraPower(Droid defend) {
-        super.useUltraPower(defend);
+    public void useExtraPower(Droid defend) {
+        super.useExtraPower(defend);
         this.setHealth(defend.getHealth()+40);
     }
 }

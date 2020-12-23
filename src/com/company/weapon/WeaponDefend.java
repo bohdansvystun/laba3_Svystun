@@ -4,7 +4,7 @@ import com.company.droids.Droid;
 
 public class WeaponDefend extends Weapon {
     public WeaponDefend() {
-        super.setTypeOfWeapon("Defend");
+        super.setWeaponType("Defend");
     }
 
 
@@ -15,6 +15,6 @@ public class WeaponDefend extends Weapon {
     @Override
     public void useWeapon(Droid attack, Droid defend) {
         super.useWeapon(attack, defend);
-        attack.setProtection(attack.getProtection() + 40);
+        attack.setAdditionalProtect(attack.getAdditionalProtect() + 40);
     }
 }

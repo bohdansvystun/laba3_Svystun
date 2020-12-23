@@ -3,7 +3,7 @@ package com.company.droids;
 public class DroidJetix extends Droid {
 
     public DroidJetix() {
-        super.setTypeOfDroid("Jetix");
+        super.setDroidtype("Jetix");
     }
 
 
@@ -14,10 +14,10 @@ public class DroidJetix extends Droid {
 
 
     @Override
-    public void useUltraPower(Droid defend) {
-        super.useUltraPower(defend);
-        this.makeHit(defend);
-        this.setProtection(this.getProtection()+25);
+    public void useExtraPower(Droid defend) {
+        super.useExtraPower(defend);
+        this.makeDamage(defend);
+        this.setAdditionalProtect(this.getAdditionalProtect()+25);
         this.setHealth(defend.getHealth()-35);
     }
 }

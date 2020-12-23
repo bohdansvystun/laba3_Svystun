@@ -4,7 +4,7 @@ import com.company.droids.Droid;
 
 public class WeaponPistol extends Weapon {
     public WeaponPistol() {
-        super.setTypeOfWeapon("Pistol");
+        super.setWeaponType("Pistol");
     }
 
 
@@ -16,6 +16,6 @@ public class WeaponPistol extends Weapon {
     @Override
     public void useWeapon(Droid attack, Droid defend) {
         super.useWeapon(attack, defend);
-        attack.makeHit(defend);
+        attack.makeDamage(defend);
     }
 }

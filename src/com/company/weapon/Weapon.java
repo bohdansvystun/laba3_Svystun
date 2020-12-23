@@ -3,22 +3,22 @@ package com.company.weapon;
 import com.company.droids.Droid;
 
 public class Weapon {
-    private String typeOfWeapon;
+    private String weaponType;
 
     public Weapon() {
-        this.typeOfWeapon = "No weapon";
+        this.weaponType = "No weapon";
     }
 
-    public String getTypeOfWeapon() {
-        return typeOfWeapon;
+    public String getWeaponType() {
+        return weaponType;
     }
 
-    public void setTypeOfWeapon(String typeOfWeapon) {
-        this.typeOfWeapon = typeOfWeapon;
+    public void setWeaponType(String weaponType) {
+        this.weaponType = weaponType;
     }
 
     public void useWeapon(Droid attack, Droid defend){
-        System.out.printf("Droid %s use weapon %s in a fight with droid %s\n", attack.getName(), this.typeOfWeapon, defend.getName());
+        System.out.printf("Droid %s use weapon %s in a fight with droid %s\n", attack.getName(), this.weaponType, defend.getName());
     }
 
 

@@ -3,7 +3,7 @@ package com.company.droids;
 public class DroidMega extends Droid {
 
     public DroidMega() {
-        super.setTypeOfDroid("Mega");
+        super.setDroidtype("Mega");
     }
 
 
@@ -13,8 +13,8 @@ public class DroidMega extends Droid {
 
 
     @Override
-    public void useUltraPower(Droid defend) {
-        super.useUltraPower(defend);
-        this.makeHit(defend);
+    public void useExtraPower(Droid defend) {
+        super.useExtraPower(defend);
+        this.makeDamage(defend);
     }
 }
